@@ -3,7 +3,6 @@
 
 #ifndef UTILFUNC_SYSERRSTR_H_
 #define UTILFUNC_SYSERRSTR_H_
-#pragma once
 
 //! 得到系统错误的描述内容
 /*!

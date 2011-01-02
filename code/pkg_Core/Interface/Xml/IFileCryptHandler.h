@@ -5,7 +5,6 @@
  */
 #ifndef X3_IFILECRYPTHANDLER_H_
 #define X3_IFILECRYPTHANDLER_H_
-#pragma once
 
 //! 文件内容加解密的接口
 interface IFileCryptHandler

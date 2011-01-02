@@ -3,7 +3,6 @@
 
 #ifndef __APPCORE_SAFECALL_H
 #define __APPCORE_SAFECALL_H
-#pragma once
 
 // Validate before call function of pointer, "v" is default return value
 #ifndef SafeCall

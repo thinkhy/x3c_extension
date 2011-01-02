@@ -1,6 +1,5 @@
 #ifndef UTILFUNC_CTRIM_H_
 #define UTILFUNC_CTRIM_H_
-#pragma once
 
 #pragma warning (push, 2)
 #include <iterator>

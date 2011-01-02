@@ -3,7 +3,6 @@
 
 #ifndef __STL_VECTOR_FUNCTIONS_H
 #define __STL_VECTOR_FUNCTIONS_H
-#pragma once
 
 #pragma warning(disable:4710)	// inline function not expanded
 #pragma warning(disable:4786)	// identifier was truncated

@@ -3,7 +3,6 @@
 
 #ifndef FUNCTIONS_COMPATIBLE_VC60_H
 #define FUNCTIONS_COMPATIBLE_VC60_H
-#pragma once
 
 #if _MSC_VER < 1400 // not VC8
 

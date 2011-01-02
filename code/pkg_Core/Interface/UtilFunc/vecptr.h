@@ -5,7 +5,6 @@
  */
 #ifndef UTILFUNC_VECPTR_H_
 #define UTILFUNC_VECPTR_H_
-#pragma once
 
 #include "vecfunc.h"
 #include <XComPtr.h>

@@ -13,7 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+#ifndef _UNITTEST_PUBLIC_STDAFX_H
+#define _UNITTEST_PUBLIC_STDAFX_H
 
 #define VC_EXTRALEAN        // Exclude rarely-used stuff from Windows headers
 
@@ -26,8 +27,12 @@
 #include <afxdisp.h>        // MFC Automation classes
 #include <shlwapi.h>		// Windows light-weight utility APIs
 
+#pragma warning(disable:4786)	// identifier was truncated
+#pragma warning(disable:4097)	// typedef-name used as synonym for TestFixture class
+#pragma warning (push, 3)
 #include <cppunit/TestCase.h>
 #include <cppunit/extensions/HelperMacros.h>
+#pragma warning (pop)
 
 #undef ASSERT
 #undef VERIFY
@@ -35,3 +40,5 @@
 #define VERIFY CPPUNIT_ASSERT
 
 #include <XComPtr.h>
+
+#endif // _UNITTEST_PUBLIC_STDAFX_H

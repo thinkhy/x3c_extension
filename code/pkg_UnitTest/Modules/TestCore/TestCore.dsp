@@ -51,6 +51,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386
 # ADD LINK32 cppunit_dll.lib TestRunneru.lib ole32.lib /nologo /entry:"wWinMainCRTStartup" /subsystem:console /pdb:"..\..\..\..\obj\vc60\Release\Symbols/TestCore.pdb" /machine:I386 /libpath:"..\..\..\bin\vc60\Release\UnitTests"
+# SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "TestCore - Win32 Debug"
 
@@ -75,6 +76,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
 # ADD LINK32 cppunitd_dll.lib TestRunnerud.lib ole32.lib /nologo /entry:"wWinMainCRTStartup" /subsystem:console /pdb:"..\..\..\..\obj\vc60\Debug\Symbols/TestCore.pdb" /debug /machine:I386 /pdbtype:sept /libpath:"..\..\..\bin\vc60\Debug\UnitTests"
+# SUBTRACT LINK32 /pdb:none
 
 !ENDIF 
 
@@ -87,16 +89,27 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\StdAfx.cpp
-# ADD CPP /Yc"stdafx.h"
+SOURCE=.\TestChangeObserver.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\TestCore.cpp
+SOURCE=.\TestConfigDB.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\TestCore.rc
+SOURCE=.\TestLoadPlugin.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\TestLogging.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\TestPluginManager.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\TestStringTable.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -104,20 +117,53 @@ SOURCE=.\TestCore.rc
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=.\Resource.h
+SOURCE=.\TestChangeObserver.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\StdAfx.h
+SOURCE=.\TestConfigDB.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\TestCore.h
+SOURCE=.\TestLoadPlugin.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TestLogging.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TestPluginManager.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TestStringTable.h
 # End Source File
 # End Group
 # Begin Group "Public"
 
 # PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=..\Public\BaseTest.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\Public\BaseTest.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\Public\stdafx.cpp
+# ADD CPP /Yc"stdafx.h"
+# End Source File
+# Begin Source File
+
+SOURCE=..\Public\stdafx.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\Public\UnitTests.cpp
+# End Source File
 # End Group
 # End Target
 # End Project

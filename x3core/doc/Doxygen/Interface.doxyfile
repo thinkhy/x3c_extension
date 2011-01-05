@@ -38,7 +38,7 @@ PROJECT_NUMBER         =
 # If a relative path is entered, it will be relative to the location 
 # where doxygen was started. If left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = E:/x3c/doc
+OUTPUT_DIRECTORY       = ..
 
 # If the CREATE_SUBDIRS tag is set to YES, then doxygen will create 
 # 4096 sub-directories (in 2 levels) under the output directory of each output 
@@ -124,7 +124,7 @@ FULL_PATH_NAMES        = NO
 # If left blank the directory from which doxygen is run is used as the 
 # path to strip.
 
-STRIP_FROM_PATH        = E:/x3c
+STRIP_FROM_PATH        = ../..
 
 # The STRIP_FROM_INC_PATH tag can be used to strip a user-defined part of 
 # the path mentioned in the documentation of a class, which tells 
@@ -590,11 +590,11 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories 
 # with spaces.
 
-INPUT                  = E:/x3c/code/pkg_Core/Interface \
-                         E:/x3c/code/pkg_Utility/Interface \
-                         E:/x3c/code/pkg_AppUI/Interface \
-                         E:/x3c/code/pkg_Utility/Modules/ConfigDB/Cx_CfgDatabase.h \
-                         E:/x3c/doc/Doxygen/MainPage.txt
+INPUT                  = ../../code/pkg_Core/Interface \
+                         ../../code/pkg_Utility/Interface \
+                         ../../code/pkg_AppUI/Interface \
+                         ../../code/pkg_Utility/Modules/ConfigDB/Cx_CfgDatabase.h \
+                         ../../doc/Doxygen/MainPage.txt
 
 # This tag can be used to specify the character encoding of the source files 
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is 
@@ -624,8 +624,8 @@ RECURSIVE              = YES
 # excluded from the INPUT source files. This way you can easily exclude a 
 # subdirectory from a directory tree whose root is specified with the INPUT tag.
 
-EXCLUDE                = E:/x3c/code/pkg_Core/Interface/Log/DebugR.cpp \
-                         E:/x3c/code/pkg_Core/Interface/UtilFunc/ctrim.h
+EXCLUDE                = ../../code/pkg_Core/Interface/Log/DebugR.cpp \
+                         ../../code/pkg_Core/Interface/UtilFunc/ctrim.h
 
 # The EXCLUDE_SYMLINKS tag can be used select whether or not files or 
 # directories that are symbolic links (a Unix filesystem feature) are excluded 
@@ -809,7 +809,7 @@ HTML_HEADER            =
 # each generated HTML page. If it is left blank doxygen will generate a 
 # standard footer.
 
-HTML_FOOTER            = E:/x3c/doc/Doxygen/html_footer.txt
+HTML_FOOTER            = ../../doc/Doxygen/html_footer.txt
 
 # The HTML_STYLESHEET tag can be used to specify a user-defined cascading 
 # style sheet that is used by each HTML page. It can be used to 

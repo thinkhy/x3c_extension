@@ -12,6 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// author: Zhang Yun Gui, Tao Jian Lin
+// v1: 2010.12
+
 #include "stdafx.h"
 #include "Cx_PluginLoader.h"
 

@@ -13,12 +13,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// author: Zhang Yun Gui, Tao Jian Lin
+// v2: 2011.1.5, change class-table to hash_map
+
 #ifndef _X3_CORE_OBJECTFACTORY_H
 #define _X3_CORE_OBJECTFACTORY_H
 
 #include <XClassItem.h>
 #include <Ix_Module.h>
 #include <Ix_ObjectFactory.h>
+
+#if _MSC_VER > 1200	// not VC6
+	#include <hash_map>
+	using stdext::hash_map;
+#else
+	#define hash_map std::map
+#endif
 
 class Cx_ObjectFactory
 	: public Ix_ObjectFactory
@@ -35,14 +45,13 @@ public:
 	virtual bool HasCreatorReplaced(const XCLSID& clsid);
 
 protected:
-	typedef std::vector<XCLSID>			VXCLSID;
-	typedef std::map<XCLSID, _XCLASSMETA_ENTRY>	CLSMAP;
-	//! 插件模块登记项
-	struct MODULEINFO
+	typedef std::vector<XCLSID>			VCLSID;
+	typedef hash_map<std::string, _XCLASSMETA_ENTRY>	CLSMAP;
+	struct MODULEINFO					//!< 插件模块登记项
 	{
 		HMODULE				hModule;	//!< 插件DLL句柄
 		Ix_Module*			pModule;	//!< 插件模块对象
-		VXCLSID				clsids;		//!< 注册了类工厂的所有类ID
+		VCLSID				clsids;		//!< 注册了类工厂的所有类ID
 		bool				bOwner;		//!< 是否由本类加载了该DLL
 		bool				bInit;		//!< 是否已由 InitializePlugins 调用
 	};

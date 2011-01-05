@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// author: Zhang Yun Gui, Tao Jian Lin
+// v1: 2010.12
+
 #ifndef _X3_CORE_PLUGINLOADER_H
 #define _X3_CORE_PLUGINLOADER_H
 

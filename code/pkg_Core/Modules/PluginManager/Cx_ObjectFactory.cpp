@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// author: Zhang Yun Gui, Tao Jian Lin
+// v2: 2011.1.5, change class-table to hash_map
+
 #include "StdAfx.h"
 #include "Cx_ObjectFactory.h"
 
@@ -84,12 +87,13 @@ bool Cx_ObjectFactory::QuerySpecialInterfaceObject(
 
 	*ppv = NULL;
 
-	const VXCLSID& clsids = m_vecModule[index].clsids;
-	VXCLSID::const_iterator it = clsids.begin();
+	const VCLSID& clsids = m_vecModule[index].clsids;
+	VCLSID::const_iterator it = clsids.begin();
 
 	for (; it != clsids.end(); ++it)
 	{
-		CLSMAP::const_iterator mit = m_mapEntry.find(*it);
+		CLSMAP::const_iterator mit = m_mapEntry.find(it->str());
+
 		if (mit != m_mapEntry.end()
 			&& lstrcmpiA(iid, mit->second.iidSpecial) == 0)
 		{
@@ -109,7 +113,7 @@ bool Cx_ObjectFactory::HasCreatorReplaced(const XCLSID& clsid)
 
 _XCLASSMETA_ENTRY* Cx_ObjectFactory::FindEntry(const XCLSID& clsid)
 {
-	CLSMAP::iterator it = m_mapEntry.find(clsid);
+	CLSMAP::iterator it = m_mapEntry.find(clsid.str());
 	return (it == m_mapEntry.end()) ? NULL : &it->second;
 }
 
@@ -213,7 +217,7 @@ bool Cx_ObjectFactory::RegisterClass(int moduleIndex, const _XCLASSMETA_ENTRY& c
 		return false;
 	}
 
-	m_mapEntry[cls.clsid] = cls;
+	m_mapEntry[cls.clsid.str()] = cls;
 	m_vecModule[moduleIndex].clsids.push_back(cls.clsid);
 
 	return true;
@@ -224,12 +228,12 @@ void Cx_ObjectFactory::ReleaseModule(HMODULE hModule)
 	int index = FindModule(hModule);
 	ASSERT(index >= 0);
 
-	const VXCLSID& clsids = m_vecModule[index].clsids;
-	VXCLSID::const_iterator it = clsids.begin();
+	const VCLSID& clsids = m_vecModule[index].clsids;
+	VCLSID::const_iterator it = clsids.begin();
 
 	for (; it != clsids.end(); ++it)
 	{
-		CLSMAP::iterator mit = m_mapEntry.find(*it);
+		CLSMAP::iterator mit = m_mapEntry.find(it->str());
 		if (mit != m_mapEntry.end())
 		{
 			m_mapEntry.erase(mit);
